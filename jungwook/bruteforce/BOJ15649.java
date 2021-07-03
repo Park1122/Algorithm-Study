@@ -1,0 +1,46 @@
+package jungwook.bruteforce;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class BOJ15649 {
+    static StringBuilder sb = new StringBuilder();
+    static int N, M;
+    static int[] selected, used;
+
+    static void input() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        N = Integer.parseInt(br.readLine());
+        M = Integer.parseInt(br.readLine());
+        selected = new int[M + 1];
+        used = new int[N + 1];
+    }
+
+    static void recFunc(int k) {
+        if (k == M + 1) {
+            for (int i = 1; i <= M; i++) {
+                sb.append(selected[i]).append(' ');
+            }
+            sb.append('\n');
+        } else {
+            for (int cand = 1; cand <= N; cand++) {
+                if (used[cand] == 1) {
+                    continue;
+                }
+                selected[k] = cand;
+                used[cand] = 1;
+                recFunc(k + 1);
+                selected[k] = 0;
+                used[cand] = 0;
+            }
+        }
+    }
+
+    public static void main(String[] args) throws IOException {
+        input();
+
+        recFunc(1);
+        System.out.println(sb.toString());
+    }
+}
