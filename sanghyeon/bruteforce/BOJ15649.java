@@ -2,7 +2,7 @@ package year_2021.month_07.day_05;
 
 import java.util.Scanner;
 
-public class P72_BOJ_15649_N°ú_M {
+public class BOJ15649 {
 
 	static int N, M;
 	static boolean[] inStack;
