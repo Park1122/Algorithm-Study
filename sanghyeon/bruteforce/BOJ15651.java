@@ -2,7 +2,7 @@ package year_2021.month_07.day_07;
 
 import java.util.Scanner;
 
-public class P74_BOJ_15651_N°ú_M_3 { 
+public class BOJ15651 { 
 
 	static int N, M;
 	static StringBuilder stringBuilder;
