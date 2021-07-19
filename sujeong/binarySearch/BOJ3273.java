@@ -26,12 +26,9 @@ public class BOJ3273 {
     }
 
     private static void func(){
-        LinkedHashMap<Integer,Integer> map = new LinkedHashMap<>();
-        for(int i=0;i<n;i++){
-            int index = Arrays.binarySearch(intArr,(m-intArr[i]));
-            if(index>=0)map.put(i,index);
-        }
-        answer=map.size()/2;
+        int index=0;
+        for(int i=0;i<n;i++)index+=Arrays.binarySearch(intArr,(m-intArr[i]))>=0 ? 1:0;
+        answer=index/2;
     }
 
     public static void main(String[] args) throws IOException {
@@ -41,3 +38,27 @@ public class BOJ3273 {
     }
 
 }
+
+// 코드 최대로 줄인 버전
+//public class BOJ3273 {
+//    private static int n, m;
+//    private static int[] intArr;
+//    private static int answer;
+//
+//    public static void main(String[] args) throws IOException {
+//        BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
+//
+//        n = Integer.parseInt(r.readLine());
+//
+//        String[] strArrN = r.readLine().split(" ");
+//        intArr = new int[n];
+//        for (int i = 0; i < n; i++) intArr[i] = Integer.parseInt(strArrN[i]);
+//
+//        m = Integer.parseInt(r.readLine());
+//
+//        int index = 0;
+//        Arrays.sort(intArr);
+//        for (int i = 0; i < n; i++) index += Arrays.binarySearch(intArr, (m - intArr[i])) >= 0 ? 1 : 0;
+//        System.out.println(index / 2);
+//    }
+//}
