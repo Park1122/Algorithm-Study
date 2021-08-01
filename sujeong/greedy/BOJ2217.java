@@ -17,6 +17,9 @@ public class BOJ2217 {
 
         // logic
         long answer = 0;
+        // 내림차순 해놓은 배열에서 로프의 개수(인덱스+1) * 새로운 값 곱한게
+        // 병렬연결한 로프가 감당할 수 있는 무게임.
+        // 그래서 하나씩 인덱스 이동하면서 큰 값을 answer에 저장해나가면 됨.
         for(int i=0;i<n;i++) answer=Math.max(intArr[i]*(i+1),answer);
 
         // output
