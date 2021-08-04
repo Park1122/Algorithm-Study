@@ -8,9 +8,34 @@ import java.util.Arrays;
 public class BOJ1931 {
     //https://www.acmicpc.net/problem/1931
 
+    private static class Time implements Comparable {
+
+        private final int startTime;
+        private final int finishTime;
+
+        // get & set
+        public int getStartTime() {return startTime;}
+        public int getFinishTime() {return finishTime;}
+
+        // Constructor
+        public Time(int startTime, int finishTime){
+            this.finishTime = finishTime;
+            this.startTime = startTime;
+        }
+
+        @Override
+        public String toString() {return startTime+" "+finishTime;}
+
+        @Override
+        public int compareTo(Object o) {
+            Time t = (Time)o;
+            if (this.finishTime==t.finishTime) return this.startTime - t.startTime;
+            else return this.finishTime-t.finishTime;
+        }
+    }
+
     private static int n, maxCount;
     private static Time[] timeArr;
-
 
     //input
     private static void input() throws IOException {
@@ -44,28 +69,3 @@ public class BOJ1931 {
     }
 }
 
-class Time implements Comparable {
-
-    private final int startTime;
-    private final int finishTime;
-
-    // get & set
-    public int getStartTime() {return startTime;}
-    public int getFinishTime() {return finishTime;}
-
-    // Constructor
-    public Time(int startTime, int finishTime){
-        this.finishTime = finishTime;
-        this.startTime = startTime;
-    }
-
-    @Override
-    public String toString() {return startTime+" "+finishTime;}
-
-    @Override`
-    public int compareTo(Object o) {
-        Time t = (Time)o;
-        if (this.finishTime==t.finishTime) return this.startTime - t.startTime;
-        else return this.finishTime-t.finishTime;
-    }
-}
