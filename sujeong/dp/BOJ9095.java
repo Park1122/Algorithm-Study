@@ -18,7 +18,12 @@ public class BOJ9095 {
     // 이를 각각에서 계산하거나 1,2,3을 계속 조합해서하면 시간이 오래걸림
     // -> dp가 필요하다. (->중복문제 해결)
 
+    // 에러 로그 >>
     // ArrayIndexOutofBounds 발생 -> 2와 3같이 1,2,3중하나면 값 셋팅부터 불가
+    // (에러는 아니지만 dp사용안해서 dp로 저장하게 수정함) func의 else문을 바로 리턴에서 dp저장 후 리턴으로
+    // 변경했다. 하지만 시간은 동일하고 메모리, 코드길이는 동일했다.
+
+
 
     private static int[] dpline;
     private static int targetNum;
@@ -31,7 +36,10 @@ public class BOJ9095 {
         // ->> 아니라면, 쪼개서 아래값으로 넘겨줘
 
         if(dpline[indexNum]!=0) return dpline[indexNum];
-        else return func(indexNum-1)+func(indexNum-2)+func(indexNum-3);
+        else {
+            dpline[indexNum] = func(indexNum-1)+func(indexNum-2)+func(indexNum-3);
+            return dpline[indexNum];
+        }
     }
 
 
