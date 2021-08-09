@@ -6,6 +6,9 @@ import java.io.InputStreamReader;
 public class BOJ1946 {
     //https://www.acmicpc.net/problem/1946
 
+    // 소요시간 >>
+    // 2시간 15분
+
     // idea >>
     // 둘다 떨어지면 탈락, 그외엔 합격인거니까
     // doc 1등의 itv보다 큰애들만 살아남음
