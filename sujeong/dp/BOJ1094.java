@@ -20,9 +20,9 @@ public class BOJ1094 {
     //  15746 나누는 걸 깜빡했다. (작은 수(6까지)에선 에러로 검출안되었어서 몰랐다)
     // 숫자가 엄청 커져서 int의 범위를 넘어설 거란 걸 생각 못했다 (자꾸 이를 간과하는 것 같다..)
 
-    private static int[] dpline;
+    private static long[] dpline;
 
-    private static int func(int indexNum) {
+    private static long func(int indexNum) {
         if(dpline[indexNum]!=0) return dpline[indexNum];
         else {
             dpline[indexNum] = (func(indexNum-1)+func(indexNum-2))%15746;
@@ -35,7 +35,7 @@ public class BOJ1094 {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int n=Integer.parseInt(reader.readLine());
 
-        dpline = new int[n+1];
+        dpline = new long[n+1];
         if(n>=0) dpline[0]=0;
         if(n>=1) dpline[1]=1;
         if(n>=2) dpline[2]=2;
