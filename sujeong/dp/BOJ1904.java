@@ -4,8 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class BOJ1094 {
-    // https://www.acmicpc.net/problem/1094
+public class BOJ1904 {
+    // https://www.acmicpc.net/problem/1904
 
     // 소요시간 >>
     // 1시간 (6까지 경우의 수를 그리느라 시간 소요가 컸다)
