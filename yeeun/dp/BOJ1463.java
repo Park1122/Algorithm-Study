@@ -28,35 +28,27 @@ public class BOJ1463 {
         memoi[2] = 1;
         memoi[3] = 1;
         for (int i = 1; i < val + 1; i++) {
-            this.recursion(memoi, i);
+            this.iteration(memoi, i);
         }
         return memoi[val];
     }
-
-
-    private void recursion(int[] memoi, int val) {
+    
+    private void iteration(int[] memoi, int val) {
         if (memoi[val] != -1) return;
 
-        int result = 1;
-        if (val % 6 == 0) {
-            int any = memoi[val - 1];
-            int even = memoi[val / 2];
+        int max=0;
+        if (val % 3 == 0) {
             int divThree = memoi[val / 3];
-            result += Math.min(any, Math.min(even, divThree));
-        } else if (val % 3 == 0) {
-            int any = memoi[val - 1];
-            int divThree = memoi[val / 3];
-            result += Math.min(any, divThree);
+            if(divThree>max)max=divThree;
         } else if (val % 2 == 0) {
-            int any = memoi[val - 1];
             int even = memoi[val / 2];
-            result += Math.min(any, even);
+            if(even>max)max=even;
         } else {
             int any = memoi[val - 1];
-            result += any;
+            if(any>max)max=any;
         }
 
-        memoi[val] = result;
+        memoi[val] = max+1;
     }
 
 }
