@@ -33,12 +33,14 @@ public class BOJ1931 {
             else return this.finishTime-t.finishTime;
         }
     }
-
-    private static int n, maxCount;
+    
+    // Variable
+    private static int n;
     private static Time[] timeArr;
 
-    //input
+    // Input & Initialize
     private static void input() throws IOException {
+        // Input
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         n=Integer.parseInt(reader.readLine());
         timeArr = new Time[n];
@@ -47,22 +49,30 @@ public class BOJ1931 {
             String[] strings = reader.readLine().split(" ");
             timeArr[i]=new Time(Integer.parseInt(strings[0]),Integer.parseInt(strings[1]));
         }
+        
+        // Initialize
         Arrays.sort(timeArr);
 
     }
 
-    //logic
+    // Logic
     private static void func(){
-        int index=0, afterTime=0, count=0;
-        for(int i=index;i<n;i++){
+        // Local variable
+        int afterTime=0, count=0;
+        
+        // Logic
+        for(int i=0;i<n;i++){
             if(afterTime<=timeArr[i].getStartTime()) {
                 afterTime = timeArr[i].getFinishTime();
                 count++;
             }
         }
+        
+        // Output
         System.out.println(count);
     }
 
+    // Main
     public static void main(String[] args) throws IOException {
        input();
        func();
