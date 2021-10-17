@@ -35,7 +35,6 @@ public class BOJ5567 {
         Set<Integer> attendees = new HashSet<>(); // 상근이의 친구 + 상근이의 친구의 친구 를 담는 배열
 
         // Input
-        // Variable
         int n = Integer.parseInt(reader.readLine()); // 사람 수
         int m = Integer.parseInt(reader.readLine()); // 연결된 관계 수
 
@@ -43,24 +42,25 @@ public class BOJ5567 {
         for(int i = 0; i< m; i++){
             String[] line = reader.readLine().split(" ");
 
-            int one = Integer.parseInt(line[0]);
-            int other = Integer.parseInt(line[1]);
+            int one = Integer.parseInt(line[0]); // 수가 더 적은 사람 a
+            int other = Integer.parseInt(line[1]); // 수가 더 큰 사람 b
 
-            if(one==1){ // 문제에서 one<other이라고 했기 때문임.
+            if(one==1){ // 문제에서 one<other이라고 했기 때문에 one만 체크해도 된다.
                 sgFriends.add(other);
                 attendees.add(other);
             }
 
+            // 관계 연결
             orgArr[one][other]=1;
             orgArr[other][one]=1;
         }
 
         // Logic
-        for(int f : sgFriends){
-            for(int i = 1; i<= n; i++){
-                int fof = orgArr[f][i];
-                if(fof==1){
-                    attendees.add(i);
+        for(int f : sgFriends){ // 상근이의 친구 f
+            for(int i = 1; i<= n; i++){  // 모든 사람 중에
+                int fof = orgArr[f][i]; // f의 친구 여부인 fof
+                if(fof==1){ // fof가 1 (f의 친구)인 경우만
+                    attendees.add(i); // attendees에 추가
                 }
             }
         }
